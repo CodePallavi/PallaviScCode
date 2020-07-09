@@ -1,0 +1,57 @@
+@import '../../assets/variables.scss';
+
+.border-class{
+    
+    border: 2px solid $lightblue;
+    // padding: 20px;
+    border-radius: 10px;
+    box-shadow: 5px 10px aliceblue;
+}
+
+.cont-style{
+    margin-bottom: 20px;;
+}
+
+.card{
+    border: 2px solid $lightgreen ;
+    border-radius: 5px;
+    padding-left: inherit;
+    padding-right: inherit;
+    
+   // margin: 10px;
+    box-shadow: 2px 5px #c6efc2;
+    .card-header{        
+        color: white;
+        background: $brightblue;
+        font: $ffont;
+        margin: 0px;
+       font-size: 20px;
+       font-weight: 600;
+    }
+    .card-body{
+
+    }
+}
+
+.style-title{
+    color: $brightblue;
+}
+
+.style-sub-title{
+    color: $brightgreen;
+}
+
+.frm-style{
+ color: $brightblue;
+}
+
+.cust-btn{
+    background: $brightblue;
+    color: white;
+    margin-left: 15px;
+}
+
+.cust-label{
+    color: $brightgreen;
+    margin-right: 10px;
+}

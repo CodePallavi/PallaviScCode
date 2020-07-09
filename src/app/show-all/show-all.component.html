@@ -1,0 +1,84 @@
+<div class=" border-class">
+
+    <div class="jumbotron text-center">
+        <h1 class="style-title">View All Posts Here</h1>
+        <p class="style-sub-title">To search by Post ID click
+            <a [routerLink]="['/showpost']">HERE</a>
+        </p>
+    </div>
+
+
+
+
+
+
+
+
+
+    <div *ngFor="let allPost of allPosts">
+
+        <div class="container cont-style">
+
+
+            <div class="row ">
+
+
+                <div class=" col-12 card">
+                    <div class="card-header">
+                        {{allPost.title}}
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p>User ID: {{allPost.userId}}</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p>ID: {{allPost.id}}</p>
+                            </div>
+                        </div>
+                        <p> {{allPost.body}} </p>
+                    </div>
+                </div>
+
+                <!-- <div class="col-4 card">
+                    <div class="card-header">
+                        {{ allPost.title}}
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p>User ID: {{allPost.userId}}</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p>ID: {{allPost.id}}</p>
+                            </div>
+                        </div>
+                        <p> {{allPost.body}} </p>
+                    </div>
+                </div> -->
+
+                <!-- <div class="col-4 card">
+                    <div class="card-header">
+                        {{ allPost.title}}
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p>User ID: {{allPost.userId}}</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p>ID: {{allPost.id}}</p>
+                            </div>
+                        </div>
+                        <p> {{allPost.body}} </p>
+                    </div>
+                </div> -->
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+</div>
