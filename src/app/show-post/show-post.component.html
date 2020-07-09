@@ -1,4 +1,6 @@
 <div class="border-class">
+
+    <!-- First Section To Search Posts By ID-->
     <div class="jumbotron text-center">
         <h1 class="style-title">View Posts By Post ID Here</h1>
         <p class="style-sub-title">To search by Post ID enter the Post ID and click on 'Search'</p>
@@ -20,6 +22,9 @@
         </form>
     </div>
 
+
+
+    <!--Second Section Show Posts -->
     <div *ngIf="posts">
         <div class="container">
             <div class="row">
@@ -42,92 +47,100 @@
                 </div>
             </div>
         </div>
+
+        <!--Third Section -- Search Comments Amongst All Comments-->
         <div *ngIf="showCommBool">
             <div class="container cnt-mrg">
-            <div class="row">
-                <form #form="ngForm" (ngSubmit)="searchComment()">
-                    <div class="form-group row">
-                        <div class=" col-md-3">
-                            <label for="email" class="cust-label">Email</label>
-                            <input type="email" class="form-control" id="email" name="postId" [(ngModel)]="searchData.email">
-                        </div>
-                        <div class=" col-md-3">
-                            <label for="name" class="cust-label">Name</label>
-                            <input type="text" class="form-control" id="name" name="name" [(ngModel)]="searchData.name">
-                        </div>
-                        <div class=" col-md-3">
-                            <label for="body" class="cust-label">Body</label>
-                            <input type="text" class="form-control" id="body" name="body" [(ngModel)]="searchData.body">
-                        </div>
-                        <div class="col-md-3 button-al">
-                            <button type="submit" class="btn btn-success">Search Comment</button>
-                        </div>
-                    </div>  
-        
-                </form>                    
-            </div>
-        </div>
-        <div *ngIf="!notSearched else afterSearch">
-            <div *ngFor="let comment of comments">
-                <div class="container cont-style">
-           
                 <div class="row">
-                    <div class="col-12">
-                        <div class="card">
-                        <div class="card-header">
-                            {{comment.name}}
+                    <form #form="ngForm" (ngSubmit)="searchComment()">
+                        <div class="form-group row">
+                            <div class=" col-md-3">
+                                <label for="email" class="cust-label">Email</label>
+                                <input type="email" class="form-control" id="email" name="postId"
+                                    [(ngModel)]="searchData.email">
+                            </div>
+                            <div class=" col-md-3">
+                                <label for="name" class="cust-label">Name</label>
+                                <input type="text" class="form-control" id="name" name="name"
+                                    [(ngModel)]="searchData.name">
+                            </div>
+                            <div class=" col-md-3">
+                                <label for="body" class="cust-label">Body</label>
+                                <input type="text" class="form-control" id="body" name="body"
+                                    [(ngModel)]="searchData.body">
+                            </div>
+                            <div class="col-md-3 button-al">
+                                <button type="submit" class="btn btn-success">Search Comment</button>
+                            </div>
                         </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <p>POST ID: {{comment.postId}}</p>
-                                </div>
-                                <div class="col-md-6">
-                                    <p>ID: {{comment.id}}</p>
+
+                    </form>
+                </div>
+            </div>
+            <!--Show all comments-->
+            <div *ngIf="!notSearched else afterSearch">
+                <div *ngFor="let comment of comments">
+                    <div class="container cont-style">
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        {{comment.name}}
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <p>POST ID: {{comment.postId}}</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>ID: {{comment.id}}</p>
+                                            </div>
+                                        </div>
+                                        <p>{{comment.email}}</p>
+                                        <p> {{comment.body}} </p>
+                                    </div>
                                 </div>
                             </div>
-                            <p>{{comment.email}}</p>
-                            <p> {{comment.body}} </p>
                         </div>
+
+
                     </div>
-                    </div> 
+
                 </div>
-
-
             </div>
 
-            </div>
-            </div>
+            <!--Show Searched Comments Only-->
             <ng-template #afterSearch>
 
                 <!-- <div *ngFor="let comment of searchedComm"> -->
-                    <div class="container cont-style">
-               
+                <div class="container cont-style">
+
                     <div class="row">
                         <div class="col-12">
                             <div class="card">
-                            <div class="card-header">
-                                {{searchedComm.name}}
-                            </div>
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <p>POST ID: {{searchedComm.postId}}</p>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>ID: {{searchedComm.id}}</p>
-                                    </div>
+                                <div class="card-header">
+                                    {{searchedComm.name}}
                                 </div>
-                                <p>{{searchedComm.email}}</p>
-                                <p> {{searchedComm.body}} </p>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <p>POST ID: {{searchedComm.postId}}</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>ID: {{searchedComm.id}}</p>
+                                        </div>
+                                    </div>
+                                    <p>{{searchedComm.email}}</p>
+                                    <p> {{searchedComm.body}} </p>
+                                </div>
                             </div>
                         </div>
-                        </div> 
                     </div>
-    
-    
+
+
                 </div>
-    
+
                 <!-- </div> -->
 
             </ng-template>
